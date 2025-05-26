@@ -1,96 +1,218 @@
-/* Dark Theme Base */
-body {
-  background-color: #121212;
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
+
+/* Reset and base */
+* {
+  box-sizing: border-box;
 }
 
-header {
-  background-color: #1e1e1e;
-  padding: 1rem 0;
+body {
+  margin: 0;
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header .container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+  justify-content: space-between;
 }
 
 .logo {
+  margin: 0;
   font-size: 1.8rem;
   font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.nav-links {
+/* Nav */
+nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
+  padding-left: 0;
+  margin: 0;
 }
 
-.nav-links li a {
-  color: #ffffff;
-  text-decoration: none;
+nav ul li a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
-.nav-links li a:hover {
-  color: #00bcd4;
+nav ul li a:hover {
+  color: #1e90ff;
 }
 
+nav ul li a i {
+  font-size: 1.2rem;
+}
+
+/* Hero Section */
 .hero {
-  background: linear-gradient(to right, #0f0f0f, #1e1e1e);
-  padding: 4rem 1rem;
+  background-color: #1a1a1a;
+  padding: 100px 20px;
   text-align: center;
+  border-bottom: 2px solid #1e90ff;
 }
 
 .hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
 }
 
 .hero p {
   font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  color: #ccc;
 }
 
 .cta-button {
-  background-color: #00bcd4;
-  color: #121212;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
+  display: inline-block;
+  background-color: #1e90ff;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
+  font-size: 1.1rem;
 }
 
 .cta-button:hover {
-  background-color: #008ba3;
+  background-color: #0056b3;
 }
 
-footer {
-  background-color: #1e1e1e;
-  padding: 1rem 0;
+/* Contact Section */
+#contact {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
   text-align: center;
 }
 
+#contact a {
+  color: #1e90ff;
+  font-weight: 700;
+}
+
+/* Footer */
+footer {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  border-top: 2px solid #1e90ff;
+}
+
+footer .socials {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
 footer .socials a {
-  color: #ffffff;
-  margin: 0 10px;
-  font-size: 1.2rem;
-  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
   transition: color 0.3s ease;
 }
 
 footer .socials a:hover {
-  color: #00bcd4;
+  color: #1e90ff;
 }
 
-/* Responsive Navigation */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1rem;
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #1e90ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
   }
 
-  header .logo,
-  .nav-links {
-    text-align: center;
+  .features-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    max-width: 90%;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
   }
 }
